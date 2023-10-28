@@ -1,0 +1,41 @@
+.product {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  box-shadow: 0px 3px 5px 2px #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.product-colors {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-color {
+  width: 2.4rem;
+  height: 2.4rem;
+  background: blueviolet;
+  border: none;
+}
+
+.product-details {
+  text-align: center;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.product-actions {
+  display: flex;
+}
+
+.product-button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  border: none;
+}

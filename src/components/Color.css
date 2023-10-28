@@ -1,0 +1,27 @@
+.color {
+  width: 2.4rem;
+  height: 2.4rem;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.color.red {
+  background: #be2528;
+}
+
+.color.blue {
+  background: #2561be;
+}
+
+.color.green {
+  background: #81a465;
+}
+
+.color.black {
+  background: #333;
+}
+
+.color.white {
+  background: #fff;
+}
