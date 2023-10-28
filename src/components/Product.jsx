@@ -11,7 +11,7 @@ const Product = () => {
         <h1>Title 1</h1>
         <h3>$25</h3>
         <div className="product-colors">
-          <Color color="red" />
+          <Color color="red" selected />
           <Color color="white" />
           <Color color="green" />
           <Color color="blue" />

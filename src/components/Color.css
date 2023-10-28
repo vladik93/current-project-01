@@ -4,6 +4,8 @@
   background: none;
   border: 1px solid #ddd;
   border-radius: 4px;
+  opacity: 0.5;
+  transform: scale(0.7);
 }
 
 .color.red {
@@ -24,4 +26,9 @@
 
 .color.white {
   background: #fff;
+}
+
+.color.selected {
+  opacity: 1;
+  transform: none;
 }
