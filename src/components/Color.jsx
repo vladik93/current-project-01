@@ -1,16 +1,15 @@
 import "./Color.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Color = ({ color, selected }) => {
-  const [isSelected, setIsSelected] = useState(selected);
-  const handleColorClick = () => {
-    console.log("color clicked");
+const Color = ({ id, color, isColorSelected, productId, changeColor }) => {
+  const handleColorClick = (id, productId) => {
+    changeColor(id, productId);
   };
 
   return (
     <button
-      className={`color ${color} ${isSelected ? "selected" : ""}`}
-      onClick={handleColorClick}
+      className={`color ${color} ${isColorSelected ? "selected" : ""}`}
+      onClick={() => handleColorClick(id, productId)}
     ></button>
   );
 };
