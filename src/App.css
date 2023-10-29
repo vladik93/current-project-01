@@ -13,3 +13,12 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+.heading-tertiary {
+  font-size: 2rem;
+}
+
+.button-icon {
+  background: none;
+  border: none;
+}

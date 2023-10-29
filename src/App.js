@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { products as productsArr } from "./database";
 import Products from "./components/Products";
+import Header from "./components/Header";
 
 function App() {
   const [products, setProducts] = useState(
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Products
         products={products}
         changeColor={changeColor}
