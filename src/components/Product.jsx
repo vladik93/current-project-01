@@ -51,7 +51,10 @@ const Product = ({
               );
             })}
         </div>
-        <p>{`${amount} / ${totalAmount}`}</p>
+        <p className="product-amount">
+          {`${amount} / ${totalAmount}`}
+          {amount >= totalAmount ? <span>(Not In Stock)</span> : null}
+        </p>
       </div>
       <div className="product-actions">
         <button className="product-button" onClick={() => onDecrementClick(id)}>

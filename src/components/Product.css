@@ -41,3 +41,15 @@
   background: #333;
   border: none;
 }
+
+.product-amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.product-amount span {
+  font-size: 1.2rem;
+  color: #be2528;
+}
