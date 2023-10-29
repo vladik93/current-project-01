@@ -6,6 +6,18 @@ import Products from "./components/Products";
 function App() {
   const [products, setProducts] = useState(productsArr);
 
+  const changeStockAmount = (amount, productId) => {
+    setProducts((prevState) => {
+      return prevState.map((product) => {
+        if (product.id === productId) {
+          return { ...product, totalAmount: product.totalAmount - amount };
+        } else {
+          return product;
+        }
+      });
+    });
+  };
+
   const changeColor = (colorId, productId) => {
     setProducts((prevState) => {
       return prevState.map((product) => {
@@ -33,7 +45,11 @@ function App() {
 
   return (
     <div className="App">
-      <Products products={products} changeColor={changeColor} />
+      <Products
+        products={products}
+        changeColor={changeColor}
+        changeStockAmount={changeStockAmount}
+      />
     </div>
   );
 }

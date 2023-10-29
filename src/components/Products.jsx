@@ -2,7 +2,7 @@ import "./Products.css";
 import React from "react";
 import Product from "./Product";
 
-const Products = ({ products, changeColor }) => {
+const Products = ({ products, changeColor, changeStockAmount }) => {
   return (
     <div className="products">
       {products &&
@@ -13,9 +13,10 @@ const Products = ({ products, changeColor }) => {
               id={product.id}
               title={product.title}
               price={product.price}
-              amount={product.amount}
+              totalAmount={product.totalAmount}
               colors={product.colors}
               changeColor={changeColor}
+              changeStockAmount={changeStockAmount}
             />
           );
         })}

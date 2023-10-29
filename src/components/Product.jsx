@@ -1,10 +1,34 @@
 import "./Product.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Color from "./Color";
-import Incrementer from "./Incrementer";
 
-const Product = ({ id, title, price, amount, colors, changeColor }) => {
+const Product = ({
+  id,
+  title,
+  price,
+  totalAmount,
+  colors,
+  changeColor,
+  changeStockAmount,
+}) => {
   const [amountSelected, setAmountSelected] = useState(0);
+
+  const onDecrementClick = () => {
+    setAmountSelected((prevState) => prevState - 1);
+  };
+
+  const onIncrementClick = () => {
+    if (amountSelected < totalAmount) {
+      setAmountSelected((prevState) => prevState + 1);
+    } else {
+      setAmountSelected((prevState) => prevState);
+    }
+  };
+
+  useEffect(() => {
+    changeStockAmount(amountSelected, id);
+  }, [amountSelected]);
+
   return (
     <div className="product">
       <img src="images/product_1.jpg" className="image" alt="" />
@@ -26,10 +50,15 @@ const Product = ({ id, title, price, amount, colors, changeColor }) => {
               );
             })}
         </div>
-        <p>{`${amountSelected} / ${amount}`}</p>
+        <p>{`${amountSelected} / ${totalAmount}`}</p>
       </div>
       <div className="product-actions">
-        <Incrementer />
+        <button className="product-button" onClick={() => onDecrementClick(id)}>
+          <img src="./icons/minus_white.svg" className="icon" alt="" />
+        </button>
+        <button className="product-button" onClick={() => onIncrementClick(id)}>
+          <img src="./icons/plus_white.svg" className="icon" alt="" />
+        </button>
       </div>
     </div>
   );

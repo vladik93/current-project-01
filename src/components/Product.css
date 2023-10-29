@@ -28,7 +28,9 @@
 }
 
 .product-actions {
+  width: 100%;
   display: flex;
+  gap: 4px;
 }
 
 .product-button {
