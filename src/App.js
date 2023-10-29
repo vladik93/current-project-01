@@ -4,13 +4,15 @@ import { products as productsArr } from "./database";
 import Products from "./components/Products";
 
 function App() {
-  const [products, setProducts] = useState(productsArr);
+  const [products, setProducts] = useState(
+    JSON.parse(localStorage.getItem("products")) || productsArr
+  );
 
   const changeStockAmount = (amount, productId) => {
     setProducts((prevState) => {
       return prevState.map((product) => {
         if (product.id === productId) {
-          return { ...product, totalAmount: product.totalAmount - amount };
+          return { ...product, amountTaken: amount };
         } else {
           return product;
         }
@@ -40,7 +42,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(products);
+    window.localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
   return (

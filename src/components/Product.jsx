@@ -7,27 +7,28 @@ const Product = ({
   title,
   price,
   totalAmount,
+  amountTaken,
   colors,
   changeColor,
   changeStockAmount,
 }) => {
-  const [amountSelected, setAmountSelected] = useState(0);
+  const [amount, setAmount] = useState(amountTaken);
 
   const onDecrementClick = () => {
-    setAmountSelected((prevState) => prevState - 1);
+    if (amount > 0) {
+      setAmount((prevState) => prevState - 1);
+    }
   };
 
   const onIncrementClick = () => {
-    if (amountSelected < totalAmount) {
-      setAmountSelected((prevState) => prevState + 1);
-    } else {
-      setAmountSelected((prevState) => prevState);
+    if (amount < totalAmount) {
+      setAmount((prevState) => prevState + 1);
     }
   };
 
   useEffect(() => {
-    changeStockAmount(amountSelected, id);
-  }, [amountSelected]);
+    changeStockAmount(amount, id);
+  }, [amount]);
 
   return (
     <div className="product">
@@ -50,7 +51,7 @@ const Product = ({
               );
             })}
         </div>
-        <p>{`${amountSelected} / ${totalAmount}`}</p>
+        <p>{`${amount} / ${totalAmount}`}</p>
       </div>
       <div className="product-actions">
         <button className="product-button" onClick={() => onDecrementClick(id)}>

@@ -14,6 +14,7 @@ const Products = ({ products, changeColor, changeStockAmount }) => {
               title={product.title}
               price={product.price}
               totalAmount={product.totalAmount}
+              amountTaken={product.amountTaken}
               colors={product.colors}
               changeColor={changeColor}
               changeStockAmount={changeStockAmount}

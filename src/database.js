@@ -4,6 +4,7 @@ export const products = [
     title: "Product 1",
     price: 15,
     totalAmount: 30,
+    amountTaken: 0,
     colors: [
       { color: "green", isSelected: false },
       { color: "black", isSelected: false },
@@ -16,6 +17,7 @@ export const products = [
     title: "Product 2",
     price: 30,
     totalAmount: 5,
+    amountTaken: 0,
     colors: [
       { color: "green", isSelected: false },
       { color: "black", isSelected: false },
@@ -28,6 +30,7 @@ export const products = [
     title: "Product 3",
     price: 15,
     totalAmount: 15,
+    amountTaken: 0,
     colors: [
       { color: "green", isSelected: false },
       { color: "black", isSelected: false },
@@ -40,6 +43,7 @@ export const products = [
     title: "Product 4",
     price: 30,
     totalAmount: 5,
+    amountTaken: 0,
     colors: [
       { color: "green", isSelected: false },
       { color: "black", isSelected: true },
