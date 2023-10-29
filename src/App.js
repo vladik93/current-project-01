@@ -3,11 +3,14 @@ import React, { useState, useEffect } from "react";
 import { products as productsArr } from "./database";
 import Products from "./components/Products";
 import Header from "./components/Header";
+import Cart from "./components/Cart";
 
 function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("products")) || productsArr
   );
+
+  const [isCart, setIsCart] = useState(false);
 
   const changeStockAmount = (amount, productId) => {
     setProducts((prevState) => {
@@ -42,18 +45,26 @@ function App() {
     });
   };
 
+  const toggleCart = () => {
+    setIsCart((prevState) => !prevState);
+  };
+
   useEffect(() => {
     window.localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
   return (
     <div className="App">
-      <Header />
-      <Products
-        products={products}
-        changeColor={changeColor}
-        changeStockAmount={changeStockAmount}
-      />
+      <Header toggleCart={toggleCart} />
+      {isCart ? (
+        <Cart />
+      ) : (
+        <Products
+          products={products}
+          changeColor={changeColor}
+          changeStockAmount={changeStockAmount}
+        />
+      )}
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.cart {
+  padding: 0.8rem;
+  padding-top: 8.8rem;
+}
+
+.cart-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  overflow: scroll;
+}
+
+.cart-item {
+  height: 12.8rem;
+  background: #ebebeb;
+  border-radius: 8px;
+}
