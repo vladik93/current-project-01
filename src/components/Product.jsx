@@ -1,6 +1,7 @@
 import "./Product.css";
 import React, { useState, useEffect } from "react";
 import Color from "./Color";
+import ColoredImage from "./ColoredImage";
 
 const Product = ({
   id,
@@ -32,7 +33,13 @@ const Product = ({
 
   return (
     <div className="product">
-      <img src="images/product_1.jpg" className="image" alt="" />
+      <ColoredImage>
+        <img
+          src="images/product_1.jpg"
+          className="image product-image"
+          alt=""
+        />
+      </ColoredImage>
       <div className="product-details">
         <h2>{title}</h2>
         <h3>${price}</h3>

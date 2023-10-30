@@ -9,8 +9,9 @@ function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("products")) || productsArr
   );
-
   const [isCart, setIsCart] = useState(false);
+
+  const [selectedColor, setSelectedColor] = useState(null);
 
   const changeStockAmount = (amount, productId) => {
     setProducts((prevState) => {
@@ -48,6 +49,10 @@ function App() {
   const toggleCart = () => {
     setIsCart((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    console.log(selectedColor);
+  }, [selectedColor]);
 
   useEffect(() => {
     window.localStorage.setItem("products", JSON.stringify(products));
