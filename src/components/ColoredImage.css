@@ -1,0 +1,18 @@
+.colored-image.red::after {
+  background-color: rgba(190, 37, 40, 0.4);
+}
+.colored-image.green::after {
+  background-color: rgba(129, 164, 101, 0.4);
+}
+
+.colored-image.black::after {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.colored-image.white::after {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.colored-image.blue::after {
+  background-color: rgba(0, 99, 255, 0.4);
+}

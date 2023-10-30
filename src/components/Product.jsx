@@ -14,6 +14,7 @@ const Product = ({
   changeStockAmount,
 }) => {
   const [amount, setAmount] = useState(amountTaken);
+  const [selectedColor, setSelectedColor] = useState({});
 
   const onDecrementClick = () => {
     if (amount > 0) {
@@ -27,13 +28,28 @@ const Product = ({
     }
   };
 
+  const getColor = () => {
+    if (colors) {
+      const color = colors.find((color) => color.isSelected === true);
+      setSelectedColor(color);
+    }
+  };
+
   useEffect(() => {
     changeStockAmount(amount, id);
   }, [amount]);
 
+  useEffect(() => {
+    getColor();
+  }, []);
+
+  useEffect(() => {
+    getColor();
+  }, [colors]);
+
   return (
     <div className="product">
-      <ColoredImage>
+      <ColoredImage color={selectedColor}>
         <img
           src="images/product_1.jpg"
           className="image product-image"

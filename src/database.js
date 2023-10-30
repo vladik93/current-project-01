@@ -8,7 +8,7 @@ export const products = [
     colors: [
       { color: "green", isSelected: false },
       { color: "black", isSelected: false },
-      { color: "blue", isSelected: false },
+      { color: "white", isSelected: false },
       { color: "red", isSelected: true },
     ],
   },
@@ -22,7 +22,7 @@ export const products = [
       { color: "green", isSelected: false },
       { color: "black", isSelected: false },
       { color: "blue", isSelected: false },
-      { color: "red", isSelected: true },
+      { color: "white", isSelected: true },
     ],
   },
   {
