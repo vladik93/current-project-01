@@ -12,6 +12,7 @@ const Product = ({
   colors,
   changeColor,
   changeStockAmount,
+  addToCart,
 }) => {
   const [amount, setAmount] = useState(amountTaken);
   const [selectedColor, setSelectedColor] = useState({});
@@ -46,6 +47,18 @@ const Product = ({
   useEffect(() => {
     getColor();
   }, [colors]);
+
+  useEffect(() => {
+    if (amount > 0) {
+      addToCart({
+        id,
+        title,
+        price,
+        amount,
+        selectedColor: selectedColor.color,
+      });
+    }
+  }, [amount]);
 
   return (
     <div className="product">

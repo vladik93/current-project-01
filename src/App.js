@@ -9,6 +9,9 @@ function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("products")) || productsArr
   );
+
+  const [cart, setCart] = useState([]);
+
   const [isCart, setIsCart] = useState(false);
 
   const [selectedColor, setSelectedColor] = useState(null);
@@ -50,9 +53,11 @@ function App() {
     setIsCart((prevState) => !prevState);
   };
 
+  const addToCart = (newProduct) => {};
+
   useEffect(() => {
-    console.log(selectedColor);
-  }, [selectedColor]);
+    console.log(cart);
+  }, [cart]);
 
   useEffect(() => {
     window.localStorage.setItem("products", JSON.stringify(products));
@@ -68,6 +73,7 @@ function App() {
           products={products}
           changeColor={changeColor}
           changeStockAmount={changeStockAmount}
+          addToCart={addToCart}
         />
       )}
     </div>
