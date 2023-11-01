@@ -10,11 +10,13 @@ function App() {
     JSON.parse(localStorage.getItem("products")) || productsArr
   );
 
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   const [isCart, setIsCart] = useState(false);
 
-  const [selectedColor, setSelectedColor] = useState(null);
+  // const [selectedColor, setSelectedColor] = useState(null);
 
   const changeStockAmount = (amount, productId) => {
     setProducts((prevState) => {
@@ -54,7 +56,6 @@ function App() {
   };
 
   const addToCart = (newItem) => {
-    console.log(newItem);
     if (cart.length > 0) {
       cart.map((item) => {
         if (item.id === newItem.id) {
@@ -77,6 +78,10 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
+
+  useEffect(() => {
+    window.localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div className="App">
