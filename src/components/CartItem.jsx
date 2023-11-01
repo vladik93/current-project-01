@@ -3,6 +3,7 @@ const CartItem = ({ item }) => {
     <div className="cart-item">
       <p>{item.title}</p>
       <p>{item.amount}</p>
+      <p>{item.selectedColor}</p>
     </div>
   );
 };

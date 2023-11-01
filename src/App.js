@@ -57,23 +57,36 @@ function App() {
 
   const addToCart = (newItem) => {
     if (cart.length > 0) {
-      cart.map((item) => {
-        if (item.id === newItem.id) {
-          let newObj = { ...item, amount: newItem.amount };
-          let filteredArr = cart.filter((item) => item.id !== newItem.id);
-          setCart([...filteredArr, newObj]);
-        } else {
-          setCart([...cart, newItem]);
-        }
-      });
+      let foundItem = cart.find((x) => x.id === newItem.id);
+      if (foundItem) {
+        let filteredArr = cart.filter((x) => x.id !== newItem.id);
+        setCart([...filteredArr, newItem]);
+      } else {
+        setCart((prevState) => [...prevState, newItem]);
+      }
     } else {
       setCart([newItem]);
     }
   };
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  const removeFromCart = (productId) => {
+    setCart((prevState) => prevState.filter((x) => x.id !== productId));
+  };
+
+  const changeCartColor = (productId, color) => {
+    setCart((prevState) =>
+      prevState.map((item) => {
+        if (item.id === productId) {
+          return {
+            ...item,
+            selectedColor: color.color,
+          };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
 
   useEffect(() => {
     window.localStorage.setItem("products", JSON.stringify(products));
@@ -92,8 +105,10 @@ function App() {
         <Products
           products={products}
           changeColor={changeColor}
+          changeCartColor={changeCartColor}
           changeStockAmount={changeStockAmount}
           addToCart={addToCart}
+          removeFromCart={removeFromCart}
         />
       )}
     </div>

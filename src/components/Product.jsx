@@ -11,8 +11,10 @@ const Product = ({
   amountTaken,
   colors,
   changeColor,
+  changeCartColor,
   changeStockAmount,
   addToCart,
+  removeFromCart,
 }) => {
   const [amount, setAmount] = useState(amountTaken);
   const [selectedColor, setSelectedColor] = useState({});
@@ -41,12 +43,22 @@ const Product = ({
   }, [amount]);
 
   useEffect(() => {
+    if (!amount) {
+      removeFromCart(id);
+    }
+  }, [amount]);
+
+  useEffect(() => {
     getColor();
   }, []);
 
   useEffect(() => {
     getColor();
   }, [colors]);
+
+  useEffect(() => {
+    changeCartColor(id, selectedColor);
+  }, [selectedColor]);
 
   useEffect(() => {
     if (amount > 0) {
