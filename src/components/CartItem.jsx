@@ -4,8 +4,7 @@ import ColoredImage from "./ColoredImage";
 
 const CartItem = ({ item }) => {
   useEffect(() => {
-    console.log("CART ITEM ====>");
-    console.log(item);
+    console.log(item.selectedColor);
   }, []);
   return (
     <div className="cart-item">

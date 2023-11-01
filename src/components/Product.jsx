@@ -81,7 +81,7 @@ const Product = ({
 
   return (
     <div className="product">
-      <ColoredImage color={selectedColor}>
+      <ColoredImage color={selectedColor.color}>
         <img src={image} className="image product-image" alt="" />
       </ColoredImage>
       <div className="product-details">

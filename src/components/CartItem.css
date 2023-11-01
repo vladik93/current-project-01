@@ -7,6 +7,7 @@
 
 .cart-item-icon {
   border-radius: 8px;
+  display: flex;
 }
 
 .cart-item-details {
@@ -18,4 +19,9 @@
 .cart-item-delete {
   align-self: start;
   font-size: 1.8rem;
+}
+
+.cart-item .colored-image {
+  border-radius: 0.8rem;
+  overflow: hidden;
 }
