@@ -7,6 +7,7 @@ const Product = ({
   id,
   title,
   price,
+  image,
   totalAmount,
   amountTaken,
   colors,
@@ -66,20 +67,22 @@ const Product = ({
         id,
         title,
         price,
+        image,
         amount,
         selectedColor: selectedColor.color,
       });
     }
   }, [amount]);
 
+  useEffect(() => {
+    console.log("IMAGE PROP =====> ");
+    console.log(image);
+  }, []);
+
   return (
     <div className="product">
       <ColoredImage color={selectedColor}>
-        <img
-          src="images/product_1.jpg"
-          className="image product-image"
-          alt=""
-        />
+        <img src={image} className="image product-image" alt="" />
       </ColoredImage>
       <div className="product-details">
         <h2>{title}</h2>

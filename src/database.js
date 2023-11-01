@@ -3,6 +3,7 @@ export const products = [
     id: 1,
     title: "Product 1",
     price: 15,
+    image: "images/product_1.jpg",
     totalAmount: 30,
     amountTaken: 0,
     colors: [
@@ -16,6 +17,7 @@ export const products = [
     id: 2,
     title: "Product 2",
     price: 30,
+    image: "images/product_1.jpg",
     totalAmount: 5,
     amountTaken: 0,
     colors: [
@@ -29,6 +31,7 @@ export const products = [
     id: 3,
     title: "Product 3",
     price: 15,
+    image: "images/product_1.jpg",
     totalAmount: 15,
     amountTaken: 0,
     colors: [
@@ -42,6 +45,7 @@ export const products = [
     id: 4,
     title: "Product 4",
     price: 30,
+    image: "images/product_1.jpg",
     totalAmount: 5,
     amountTaken: 0,
     colors: [

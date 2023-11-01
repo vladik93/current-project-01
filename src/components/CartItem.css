@@ -1,0 +1,21 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 1.6rem;
+  gap: 1.6rem;
+}
+
+.cart-item-icon {
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cart-item-delete {
+  align-self: start;
+  font-size: 1.8rem;
+}

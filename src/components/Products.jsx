@@ -10,6 +10,8 @@ const Products = ({
   addToCart,
   removeFromCart,
 }) => {
+  console.log("PRODUCTS ARRAY ====>");
+  console.log(products);
   return (
     <div className="products">
       {products &&
@@ -20,6 +22,7 @@ const Products = ({
               id={product.id}
               title={product.title}
               price={product.price}
+              image={product.image}
               totalAmount={product.totalAmount}
               amountTaken={product.amountTaken}
               colors={product.colors}
