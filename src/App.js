@@ -55,21 +55,20 @@ function App() {
 
   const addToCart = (newItem) => {
     console.log(newItem);
-    if(cart.length > 0) {
-      cart.map(item => {
-        if(item.id === newItem.id) {
-          let newObj = {...item, amount: newItem.amount};
-          let filteredArr = cart.filter(item => item.id !== newItem.id);
+    if (cart.length > 0) {
+      cart.map((item) => {
+        if (item.id === newItem.id) {
+          let newObj = { ...item, amount: newItem.amount };
+          let filteredArr = cart.filter((item) => item.id !== newItem.id);
           setCart([...filteredArr, newObj]);
         } else {
           setCart([...cart, newItem]);
         }
-      })
+      });
     } else {
       setCart([newItem]);
     }
-    
-  }
+  };
 
   useEffect(() => {
     console.log(cart);
@@ -83,7 +82,7 @@ function App() {
     <div className="App">
       <Header toggleCart={toggleCart} />
       {isCart ? (
-        <Cart />
+        <Cart cart={cart} />
       ) : (
         <Products
           products={products}

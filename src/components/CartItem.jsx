@@ -1,5 +1,10 @@
-const CartItem = () => {
-  return <div className="cart-item"></div>;
+const CartItem = ({ item }) => {
+  return (
+    <div className="cart-item">
+      <p>{item.title}</p>
+      <p>{item.amount}</p>
+    </div>
+  );
 };
 
 export default CartItem;

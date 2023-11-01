@@ -2,14 +2,13 @@ import "./Cart.css";
 import React from "react";
 import CartItem from "./CartItem";
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   return (
     <div className="cart">
       <div className="cart-panel">
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        {cart.map((item) => {
+          return <CartItem item={item} />;
+        })}
       </div>
       <div className="cart-footer"></div>
     </div>
