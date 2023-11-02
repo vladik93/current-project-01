@@ -5,6 +5,8 @@ import CartFooter from "./CartFooter";
 
 const Cart = ({ cart }) => {
   return (
+    <>
+    { cart && cart.length > 0 ? (
     <div className="cart">
       <div className="cart-panel">
         {cart.map((item, index) => {
@@ -12,7 +14,14 @@ const Cart = ({ cart }) => {
         })}
       </div>
       <CartFooter />
-    </div>
+    </div>) : (
+
+      <div className="cart empty">
+        <p>Cart is empty</p>
+      </div>
+    )
+    }
+    </>
   );
 };
 
