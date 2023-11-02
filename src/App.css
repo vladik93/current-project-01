@@ -17,6 +17,12 @@
   width: 3.2rem;
 }
 
+.icon-sm {
+  height: 2.4rem;
+  width: 2.4rem;
+  max-width: 100%;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

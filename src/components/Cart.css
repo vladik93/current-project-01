@@ -1,17 +1,20 @@
 .cart {
   padding: 0.8rem;
   padding-top: 8.8rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-panel {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  overflow: scroll;
+  overflow-y: scroll;
+  padding-bottom: 3.2rem;
 }
 
-.cart-item {
-  height: 12.8rem;
-  background: #ebebeb;
-  border-radius: 8px;
+.cart-footer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }

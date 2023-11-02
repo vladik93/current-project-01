@@ -1,19 +1,17 @@
 .cart-item {
+  height: 9.6rem;
+  background: #ebebeb;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   padding: 1.6rem;
   gap: 1.6rem;
+  /* box-shadow: 1px 1px 1px #999; */
 }
 
 .cart-item-icon {
   border-radius: 8px;
   display: flex;
-}
-
-.cart-item-details {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
 }
 
 .cart-item-delete {
@@ -24,4 +22,21 @@
 .cart-item .colored-image {
   border-radius: 0.8rem;
   overflow: hidden;
+}
+
+.cart-item-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+}
+
+.cart-item-detail {
+  font-size: 1.4rem;
+  color: #999;
 }

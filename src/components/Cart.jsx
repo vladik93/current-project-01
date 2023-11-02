@@ -1,6 +1,7 @@
 import "./Cart.css";
 import React from "react";
 import CartItem from "./CartItem";
+import CartFooter from "./CartFooter";
 
 const Cart = ({ cart }) => {
   return (
@@ -10,7 +11,7 @@ const Cart = ({ cart }) => {
           return <CartItem key={index} item={item} />;
         })}
       </div>
-      <div className="cart-footer"></div>
+      <CartFooter />
     </div>
   );
 };

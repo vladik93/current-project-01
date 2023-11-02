@@ -88,6 +88,8 @@ function App() {
     );
   };
 
+  const getTotalByProductId = (productId) => {};
+
   useEffect(() => {
     window.localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
@@ -98,9 +100,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header toggleCart={toggleCart} />
+      <Header toggleCart={toggleCart} isCart={isCart} />
       {isCart ? (
-        <Cart cart={cart} />
+        <Cart cart={cart} getTotalByProductId={getTotalByProductId} />
       ) : (
         <Products
           products={products}

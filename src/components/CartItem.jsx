@@ -15,11 +15,14 @@ const CartItem = ({ item }) => {
         />
       </ColoredImage>
       <div className="cart-item-details">
-        <p>{item.title}</p>
-        <p>{item.amount}</p>
-        <p>{item.selectedColor}</p>
+        <p className="cart-item-heading">{item.title}</p>
+        <p className="cart-item-detail">Color: {item.selectedColor}</p>
+        <p className="cart-item-detail">Quantity: {item.amount}</p>
+        <p className="cart-item-heading">$350</p>
       </div>
-      <button className="button-icon cart-item-delete">X</button>
+      <button className="button-icon cart-item-delete">
+        <img src="./icons/close.svg" className="icon-sm" />
+      </button>
     </div>
   );
 };
