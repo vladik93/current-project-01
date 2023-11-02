@@ -102,7 +102,7 @@ function App() {
     <div className="App">
       <Header toggleCart={toggleCart} isCart={isCart} />
       {isCart ? (
-        <Cart cart={cart} getTotalByProductId={getTotalByProductId} />
+        <Cart cart={cart} getTotalByProductId={getTotalByProductId} removeFromCart={removeFromCart}/>
       ) : (
         <Products
           products={products}

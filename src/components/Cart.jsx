@@ -3,14 +3,14 @@ import React from "react";
 import CartItem from "./CartItem";
 import CartFooter from "./CartFooter";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, removeFromCart }) => {
   return (
     <>
     { cart && cart.length > 0 ? (
     <div className="cart">
       <div className="cart-panel">
         {cart.map((item, index) => {
-          return <CartItem key={index} item={item} />;
+          return <CartItem key={index} item={item} removeFromCart={removeFromCart}/>;
         })}
       </div>
       <CartFooter />

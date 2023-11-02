@@ -2,7 +2,12 @@ import "./CartItem.css";
 import React, { useEffect } from "react";
 import ColoredImage from "./ColoredImage";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, removeFromCart }) => {
+  const handleItemDelete = (itemId) => {
+    removeFromCart(itemId);
+  }
+
+  
   useEffect(() => {
     console.log(item.selectedColor);
   }, []);
@@ -20,7 +25,7 @@ const CartItem = ({ item }) => {
         <p className="cart-item-detail">Quantity: {item.amount}</p>
         <p className="cart-item-heading">$350</p>
       </div>
-      <button className="button-icon cart-item-delete">
+      <button className="button-icon cart-item-delete" onClick={() => handleItemDelete(item.id)}>
         <img src="./icons/close.svg" className="icon-sm" />
       </button>
     </div>
