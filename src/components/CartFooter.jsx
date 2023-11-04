@@ -1,7 +1,7 @@
 import "./CartFooter.css";
 import React, { useEffect } from "react";
 
-const CartFooter = ({ getCartTotal }) => {
+const CartFooter = ({ getCartTotal, getDiscountsTotal }) => {
   useEffect(() => {
     console.log("GET CART TOTAL FUNC ====> ");
     getCartTotal();
@@ -16,7 +16,7 @@ const CartFooter = ({ getCartTotal }) => {
         </div>
         <div className="price-detail">
           <p>Total Discounts</p>
-          <p>$30</p>
+          <p>${getDiscountsTotal()}</p>
         </div>
       </div>
       <div className="price-detail">

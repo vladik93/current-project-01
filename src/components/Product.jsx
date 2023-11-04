@@ -10,6 +10,7 @@ const Product = ({
   image,
   totalAmount,
   amountTaken,
+  discount,
   colors,
   changeColor,
   changeCartColor,
@@ -69,6 +70,7 @@ const Product = ({
         price,
         image,
         amount,
+        discount,
         selectedColor: selectedColor.color,
       });
     }

@@ -22,6 +22,7 @@ const Products = ({
               id={product.id}
               title={product.title}
               price={product.price}
+              discount={product.discount}
               image={product.image}
               totalAmount={product.totalAmount}
               amountTaken={product.amountTaken}

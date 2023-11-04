@@ -112,12 +112,21 @@ function App() {
     return totalSum;
   };
 
+  const getDiscountsTotal = () => {
+    let discountSum = cart.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.discount * currentValue.amount;
+    }, 0);
+
+    return discountSum;
+  };
+
   useEffect(() => {
     resetProductCount();
   }, [cart]);
 
   useEffect(() => {
-    getCartTotal();
+    console.log("CART ====>");
+    console.log(cart);
   }, [cart]);
 
   useEffect(() => {
@@ -136,6 +145,7 @@ function App() {
           cart={cart}
           removeFromCart={removeFromCart}
           getCartTotal={getCartTotal}
+          getDiscountsTotal={getDiscountsTotal}
         />
       ) : (
         <Products
