@@ -3,9 +3,16 @@
   flex-direction: column;
   gap: 1.6rem;
   padding: 3.2rem 0;
+  padding-bottom: 1.6rem;
 }
 
 .price-detail {
   display: flex;
   justify-content: space-between;
+}
+
+.cart-footer-button {
+  padding: 1.4rem 1.6rem;
+  background: #333;
+  color: #fff;
 }

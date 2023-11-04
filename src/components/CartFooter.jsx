@@ -5,7 +5,7 @@ const CartFooter = ({ cartDetails }) => {
   return (
     <div className="cart-footer">
       <h3>Price Details</h3>
-      <div className="price-details">
+      <div className="price-details text-sm">
         <div className="price-detail">
           <p>Total Product Price</p>
           <p>${cartDetails.totalSum}</p>
@@ -19,6 +19,7 @@ const CartFooter = ({ cartDetails }) => {
         <h3>Order Total</h3>
         <p>${cartDetails.totalSum - cartDetails.totalDiscount}</p>
       </div>
+      <button className="button cart-footer-button">CONTINUE</button>
     </div>
   );
 };

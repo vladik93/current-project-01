@@ -40,3 +40,13 @@
   background: none;
   border: none;
 }
+
+.text-sm {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.button {
+  border-radius: 0.8rem;
+  border: none;
+}
