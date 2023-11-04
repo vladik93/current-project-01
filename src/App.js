@@ -103,10 +103,21 @@ function App() {
     );
   };
 
-  const getTotalByProductId = (productId) => {};
+  const getCartTotal = () => {
+    console.log("getCartTotal ===>");
+    let totalSum = cart.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.amount * currentValue.price;
+    }, 0);
+
+    return totalSum;
+  };
 
   useEffect(() => {
     resetProductCount();
+  }, [cart]);
+
+  useEffect(() => {
+    getCartTotal();
   }, [cart]);
 
   useEffect(() => {
@@ -123,8 +134,8 @@ function App() {
       {isCart ? (
         <Cart
           cart={cart}
-          getTotalByProductId={getTotalByProductId}
           removeFromCart={removeFromCart}
+          getCartTotal={getCartTotal}
         />
       ) : (
         <Products

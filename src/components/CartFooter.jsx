@@ -1,14 +1,18 @@
 import "./CartFooter.css";
-import React from "react";
+import React, { useEffect } from "react";
 
-const CartFooter = () => {
+const CartFooter = ({ getCartTotal }) => {
+  useEffect(() => {
+    console.log("GET CART TOTAL FUNC ====> ");
+    getCartTotal();
+  }, []);
   return (
     <div className="cart-footer">
       <h3>Price Details</h3>
       <div className="price-details">
         <div className="price-detail">
           <p>Total Product Price</p>
-          <p>$1250</p>
+          <p>${getCartTotal()}</p>
         </div>
         <div className="price-detail">
           <p>Total Discounts</p>
@@ -17,7 +21,7 @@ const CartFooter = () => {
       </div>
       <div className="price-detail">
         <h3>Order Total</h3>
-        <h3>$1280</h3>
+        <h3></h3>
       </div>
     </div>
   );

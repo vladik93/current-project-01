@@ -9,3 +9,15 @@
 ## FONT WEIGHT
 
 300 / 500 / 700
+
+# REDUCE (fn)
+
+const myArr = [1, 2, 2, 3, 4, 5, 6, 6, 7, 7, 8, 9];
+const arrNoDuplicates = myArr.reduce((accumulator, currentValue) => {
+if(!accumulator.includes(currentValue)) {
+return [...accumulator, currentValue];
+}
+return accumulator;
+}, []);
+
+<!-- console.log(arrNoDuplicates) ===> [1, 2, 3, 4, 5, 6, 7, 8, 9] -->
