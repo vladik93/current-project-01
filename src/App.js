@@ -14,9 +14,12 @@ function App() {
     JSON.parse(localStorage.getItem("cart")) || []
   );
 
-  const [isCart, setIsCart] = useState(false);
+  const [cartDetails, setCartDetails] = useState({
+    totalSum: 0,
+    totalDiscount: 0,
+  });
 
-  // const [selectedColor, setSelectedColor] = useState(null);
+  const [isCart, setIsCart] = useState(false);
 
   const changeStockAmount = (amount, productId) => {
     setProducts((prevState) => {
@@ -69,7 +72,7 @@ function App() {
     }
   };
 
-  const removeFromCart = (productId, callback) => {
+  const removeFromCart = (productId) => {
     setCart((prevState) => prevState.filter((x) => x.id !== productId));
   };
 
@@ -104,20 +107,23 @@ function App() {
   };
 
   const getCartTotal = () => {
-    console.log("getCartTotal ===>");
-    let totalSum = cart.reduce((accumulator, currentValue) => {
+    let total = cart.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.amount * currentValue.price;
     }, 0);
 
-    return totalSum;
+    setCartDetails((prevState) => {
+      return { ...prevState, totalSum: total };
+    });
   };
 
-  const getDiscountsTotal = () => {
-    let discountSum = cart.reduce((accumulator, currentValue) => {
+  const getDiscountTotal = () => {
+    let total = cart.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.discount * currentValue.amount;
     }, 0);
 
-    return discountSum;
+    setCartDetails((prevState) => {
+      return { ...prevState, totalDiscount: total };
+    });
   };
 
   useEffect(() => {
@@ -125,8 +131,8 @@ function App() {
   }, [cart]);
 
   useEffect(() => {
-    console.log("CART ====>");
-    console.log(cart);
+    getCartTotal();
+    getDiscountTotal();
   }, [cart]);
 
   useEffect(() => {
@@ -143,9 +149,8 @@ function App() {
       {isCart ? (
         <Cart
           cart={cart}
+          cartDetails={cartDetails}
           removeFromCart={removeFromCart}
-          getCartTotal={getCartTotal}
-          getDiscountsTotal={getDiscountsTotal}
         />
       ) : (
         <Products

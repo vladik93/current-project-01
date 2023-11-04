@@ -3,7 +3,7 @@ import React from "react";
 import CartItem from "./CartItem";
 import CartFooter from "./CartFooter";
 
-const Cart = ({ cart, removeFromCart, getCartTotal, getDiscountsTotal }) => {
+const Cart = ({ cart, removeFromCart, cartDetails }) => {
   return (
     <>
       {cart && cart.length > 0 ? (
@@ -19,10 +19,7 @@ const Cart = ({ cart, removeFromCart, getCartTotal, getDiscountsTotal }) => {
               );
             })}
           </div>
-          <CartFooter
-            getCartTotal={getCartTotal}
-            getDiscountsTotal={getDiscountsTotal}
-          />
+          <CartFooter cartDetails={cartDetails} />
         </div>
       ) : (
         <div className="cart empty">

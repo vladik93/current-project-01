@@ -32,6 +32,10 @@
   font-size: 2rem;
 }
 
+.button-full {
+  width: 100%;
+}
+
 .button-icon {
   background: none;
   border: none;
