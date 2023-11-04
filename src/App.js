@@ -69,8 +69,23 @@ function App() {
     }
   };
 
-  const removeFromCart = (productId) => {
+  const removeFromCart = (productId, callback) => {
     setCart((prevState) => prevState.filter((x) => x.id !== productId));
+  };
+
+  const resetProductCount = () => {
+    console.log("resetProductCount =====>");
+    setProducts((prevState) => {
+      return prevState.map((product) => {
+        let foundInCart = cart.find((item) => item.id === product.id);
+
+        if (!foundInCart) {
+          return { ...product, amountTaken: 0 };
+        } else {
+          return product;
+        }
+      });
+    });
   };
 
   const changeCartColor = (productId, color) => {
@@ -91,6 +106,10 @@ function App() {
   const getTotalByProductId = (productId) => {};
 
   useEffect(() => {
+    resetProductCount();
+  }, [cart]);
+
+  useEffect(() => {
     window.localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
@@ -102,7 +121,11 @@ function App() {
     <div className="App">
       <Header toggleCart={toggleCart} isCart={isCart} />
       {isCart ? (
-        <Cart cart={cart} getTotalByProductId={getTotalByProductId} removeFromCart={removeFromCart}/>
+        <Cart
+          cart={cart}
+          getTotalByProductId={getTotalByProductId}
+          removeFromCart={removeFromCart}
+        />
       ) : (
         <Products
           products={products}
