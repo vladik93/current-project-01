@@ -1,9 +1,13 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { products as productsArr } from "./database";
+import {
+  products as productsArr,
+  creditCards as creditCardsArr,
+} from "./database";
 import Products from "./components/Products";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
+import Payment from "./components/Payment";
 
 function App() {
   const [products, setProducts] = useState(
@@ -20,6 +24,8 @@ function App() {
   });
 
   const [isCart, setIsCart] = useState(false);
+
+  const [creditCards, setCreditCards] = useState(creditCardsArr);
 
   const changeStockAmount = (amount, productId) => {
     setProducts((prevState) => {
@@ -126,6 +132,18 @@ function App() {
     });
   };
 
+  const selectCreditCardById = (id) => {
+    setCreditCards((prevState) => {
+      return prevState.map((card) => {
+        if (card.id === id) {
+          return { ...card, selected: !card.selected };
+        } else {
+          return { ...card, selected: false };
+        }
+      });
+    });
+  };
+
   useEffect(() => {
     resetProductCount();
   }, [cart]);
@@ -147,12 +165,13 @@ function App() {
     <div className="App">
       <Header toggleCart={toggleCart} isCart={isCart} />
       {isCart ? (
-        <Cart
-          cart={cart}
-          cartDetails={cartDetails}
-          removeFromCart={removeFromCart}
-        />
+        <></>
       ) : (
+        // <Cart
+        //   cart={cart}
+        //   cartDetails={cartDetails}
+        //   removeFromCart={removeFromCart}
+        // />
         <Products
           products={products}
           changeColor={changeColor}
@@ -162,6 +181,10 @@ function App() {
           removeFromCart={removeFromCart}
         />
       )}
+      <Payment
+        creditCards={creditCards}
+        selectCreditCardById={selectCreditCardById}
+      />
     </div>
   );
 }

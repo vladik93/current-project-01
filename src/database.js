@@ -60,3 +60,24 @@ export const products = [
     ],
   },
 ];
+
+export const creditCards = [
+  {
+    id: 1,
+    type: "visa",
+    number: "3453-2211-2223-3332-1111",
+    bank: "Leumi",
+    expiration: "05-03-2023",
+    owner: "John Doe",
+    selected: false,
+  },
+  {
+    id: 2,
+    type: "visa",
+    number: "3453-2211-2223-3332-1111",
+    bank: "Leumi",
+    expiration: "05-03-2023",
+    owner: "John Doe",
+    selected: false,
+  },
+];

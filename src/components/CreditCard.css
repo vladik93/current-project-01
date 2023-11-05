@@ -1,0 +1,40 @@
+.credit-card {
+  /* background-color: #aaa; */
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  display: flex;
+  box-shadow: 0 0 0 1px #ccc;
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.credit-card.selected {
+  box-shadow: 0 0 0 3px #dacfe6;
+}
+
+.credit-checkbox {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  background-color: #fff;
+  border-radius: 100%;
+}
+
+.credit-card.selected .credit-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: #dacfe6;
+  border-radius: 100%;
+}
+
+.credit-details {
+  display: flex;
+  gap: 0.8rem;
+}
