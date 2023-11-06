@@ -14,7 +14,11 @@ const Collapsible = ({ children }) => {
       <button className="button collapsible-button" onClick={handleClick}>
         <img src="./icons/credit_card.svg" className="icon" />
         <span>Credit/Debit Card</span>
-        <img src="./icons/caret_up.svg" className="icon icon-caret" />
+        {isCollapsed ? (
+          <img src="./icons/caret_up.svg" className="icon icon-caret" />
+        ) : (
+          <img src="./icons/caret_down.svg" className="icon icon-caret" />
+        )}
       </button>
 
       {isCollapsed && (

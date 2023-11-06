@@ -10,8 +10,13 @@
   align-items: center;
 }
 
+.credit-card:not(.add-card) {
+  opacity: 0.7;
+}
+
 .credit-card.selected {
   box-shadow: 0 0 0 3px #dacfe6;
+  opacity: 1;
 }
 
 .credit-checkbox {

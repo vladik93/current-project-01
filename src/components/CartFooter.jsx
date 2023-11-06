@@ -1,7 +1,14 @@
 import "./CartFooter.css";
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartFooter = ({ cartDetails }) => {
+  const navigate = useNavigate();
+
+  const handleContinueClick = () => {
+    navigate("/payment");
+  };
+
   return (
     <div className="cart-footer">
       <h3>Price Details</h3>
@@ -19,7 +26,12 @@ const CartFooter = ({ cartDetails }) => {
         <h3>Order Total</h3>
         <p>${cartDetails.totalSum - cartDetails.totalDiscount}</p>
       </div>
-      <button className="button cart-footer-button">CONTINUE</button>
+      <button
+        className="button cart-footer-button"
+        onClick={handleContinueClick}
+      >
+        CONTINUE
+      </button>
     </div>
   );
 };

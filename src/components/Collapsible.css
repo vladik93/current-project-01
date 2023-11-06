@@ -33,6 +33,7 @@
   background-color: rgba(219, 208, 231, 0.5);
 }
 
-.add-card span {
+.add-card span,
+.collapsible-button span {
   font-weight: 700;
 }

@@ -69,7 +69,7 @@ export const creditCards = [
     bank: "Leumi",
     expiration: "05-03-2023",
     owner: "John Doe",
-    selected: false,
+    selected: true,
   },
   {
     id: 2,

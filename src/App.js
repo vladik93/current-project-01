@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import {
   products as productsArr,
   creditCards as creditCardsArr,
@@ -24,6 +25,7 @@ function App() {
   });
 
   const [isCart, setIsCart] = useState(false);
+  const [isPayment, setIsPayment] = useState(false);
 
   const [creditCards, setCreditCards] = useState(creditCardsArr);
 
@@ -164,27 +166,42 @@ function App() {
   return (
     <div className="App">
       <Header toggleCart={toggleCart} isCart={isCart} />
-      {isCart ? (
-        <></>
-      ) : (
-        // <Cart
-        //   cart={cart}
-        //   cartDetails={cartDetails}
-        //   removeFromCart={removeFromCart}
-        // />
-        <Products
-          products={products}
-          changeColor={changeColor}
-          changeCartColor={changeCartColor}
-          changeStockAmount={changeStockAmount}
-          addToCart={addToCart}
-          removeFromCart={removeFromCart}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Products
+              products={products}
+              changeColor={changeColor}
+              changeCartColor={changeCartColor}
+              changeStockAmount={changeStockAmount}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+            />
+          }
         />
-      )}
-      <Payment
-        creditCards={creditCards}
-        selectCreditCardById={selectCreditCardById}
-      />
+
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cart={cart}
+              cartDetails={cartDetails}
+              removeFromCart={removeFromCart}
+            />
+          }
+        />
+
+        <Route
+          path="/payment"
+          element={
+            <Payment
+              creditCards={creditCards}
+              selectCreditCardById={selectCreditCardById}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }
