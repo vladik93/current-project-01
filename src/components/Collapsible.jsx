@@ -1,12 +1,19 @@
 import "./Collapsible.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CreditCard from "./CreditCard";
 
 const Collapsible = ({ children }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleClick = () => {
     setIsCollapsed((prevState) => !prevState);
+  };
+
+  const handleAddCardClick = () => {
+    navigate("/add_card");
   };
 
   return (
@@ -25,7 +32,10 @@ const Collapsible = ({ children }) => {
         <div className="collapsible-content">
           {children}
 
-          <button className="credit-card add-card button">
+          <button
+            className="credit-card add-card button"
+            onClick={handleAddCardClick}
+          >
             <img src="./icons/plus_circle.svg" className="icon" />
             <span>Add Card</span>
           </button>

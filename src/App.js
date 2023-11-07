@@ -9,6 +9,7 @@ import Products from "./components/Products";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Payment from "./components/Payment";
+import NewCard from "./components/NewCard";
 
 function App() {
   const [products, setProducts] = useState(
@@ -201,6 +202,7 @@ function App() {
             />
           }
         />
+        <Route path="/add_card" element={<NewCard />} />
       </Routes>
     </div>
   );
