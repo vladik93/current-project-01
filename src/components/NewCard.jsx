@@ -4,8 +4,9 @@ import Collapsible from "./Collapsible";
 
 const NewCard = () => {
   return (
-    <div className="new-card">
-      <form className="new-card-form">
+    // <div className="new-card">
+    <form className="new-card-form-container">
+      <div className="new-card-form">
         <div className="new-card-title">
           <img src="./icons/credit_card.svg" className="icon" />
           <h3>Credit/Debit Card</h3>
@@ -28,8 +29,16 @@ const NewCard = () => {
             <input type="text" className="new-card-input" />
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+      <div className="new-card-form-footer">
+        <div className="new-card-checkbox-control">
+          <input type="checkbox" />
+          <label>Save this card for faster payments</label>
+        </div>
+        <button className="new-card-button">Pay Now</button>
+      </div>
+    </form>
+    // </div>
   );
 };
 
