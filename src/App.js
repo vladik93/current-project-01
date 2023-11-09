@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import {
   products as productsArr,
   creditCards as creditCardsArr,
@@ -12,6 +12,8 @@ import Payment from "./components/Payment";
 import NewCard from "./components/NewCard";
 
 function App() {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("products")) || productsArr
   );
@@ -28,7 +30,9 @@ function App() {
   const [isCart, setIsCart] = useState(false);
   const [isPayment, setIsPayment] = useState(false);
 
-  const [creditCards, setCreditCards] = useState(creditCardsArr);
+  const [creditCards, setCreditCards] = useState(
+    JSON.parse(localStorage.getItem("creditCards") || creditCardsArr)
+  );
 
   const changeStockAmount = (amount, productId) => {
     setProducts((prevState) => {
@@ -147,6 +151,11 @@ function App() {
     });
   };
 
+  const addCard = (newCard) => {
+    setCreditCards((prevState) => [...prevState, newCard]);
+    navigate("/payment");
+  };
+
   useEffect(() => {
     resetProductCount();
   }, [cart]);
@@ -163,6 +172,10 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => {
+    window.localStorage.setItem("creditCards", JSON.stringify(creditCards));
+  }, [creditCards]);
 
   return (
     <div className="App">
@@ -202,7 +215,7 @@ function App() {
             />
           }
         />
-        <Route path="/add_card" element={<NewCard />} />
+        <Route path="/add_card" element={<NewCard addCard={addCard} />} />
       </Routes>
     </div>
   );
